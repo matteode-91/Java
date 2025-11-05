@@ -6,6 +6,7 @@ public class JavaApplication1 {
     int versione;
 
     public Applicazione{}
+    public Applicazione(String app,int versione){}
 
     public static void main(String[] args) {
         // TODO code application logic here
