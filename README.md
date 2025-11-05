@@ -1,3 +1,3 @@
 # Java
-Esercizio Java
-Aggiunti attributi e costruttore di default
+Esercizio Java.
+Aggiunti attributi e costruttore di default.
