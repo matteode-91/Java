@@ -27,7 +27,7 @@ public class Automobile {
     public double getserbatoio(){return serbatoio;}
 
     public String fileCSV(){
-        return String.join(";",carburante,Integer.toString(potenza),Integer.toString(serbatoio));
+        return String.join(";", carburante, Integer.toString(potenza), Integer.toString(serbatoio));
     }
    
 
@@ -54,13 +54,21 @@ public class Automobile {
     }
     
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
     Path csv = Path.of("Automobile.csv");
     Automobile Fiat=new Automobile("Gasolio",75,35);
     Automobile Ford=new Automobile();
     Ford.setcarburante("Benzina");
     Ford.setpotenza(125);
     Ford.setserbatoio(50);
+    Files.writeString(    //scrive dentro il file
+                csv,
+                Fiat.fileCSV() + System.lineSeparator(),
+                StandardCharsets.UTF_8,
+                StandardOpenOption.CREATE,
+                StandardOpenOption.APPEND
+            );
+    System.out.println("Salvato: " + Fiat.fileCSV());
     Scanner sc=new Scanner(System.in);
     System.out.println("Digita true or false");
     boolean chiave=sc.nextBoolean();
