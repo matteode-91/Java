@@ -30,9 +30,10 @@ public class Automobile {
         return String.join(";", carburante, Integer.toString(potenza), Integer.toString(serbatoio));
     }
    
-
-    public boolean telecomando(boolean accendi){
-        if(accendi==true){
+    public int telecomando(int accendi){
+        System.out.println("Premi 1 o 2");
+        Scanner sc=new Scanner(System.in);
+        if(accendi==1){
             System.out.println("La macchina e' accesa");}
         else{
             System.out.println("La macchina e' spenta");
@@ -61,6 +62,13 @@ public class Automobile {
     Ford.setcarburante("Benzina");
     Ford.setpotenza(125);
     Ford.setserbatoio(50);
+    Scanner sc=new Scanner(System.in);
+    System.out.println("Digita 1 o 2");
+    int chiave=sc.nextInt();
+    Ford.telecomando(chiave);
+    if(chiave==1){
+    Ford.motore();
+    }
     Files.writeString(    //scrive dentro il file
                 csv,
                 Fiat.fileCSV() + System.lineSeparator(),
@@ -69,12 +77,5 @@ public class Automobile {
                 StandardOpenOption.APPEND
             );
     System.out.println("Salvato: " + Fiat.fileCSV());
-    Scanner sc=new Scanner(System.in);
-    System.out.println("Digita true or false");
-    boolean chiave=sc.nextBoolean();
-    Ford.telecomando(chiave);
-    if(chiave==true){
-    Ford.motore();
-    }
   }
 }
